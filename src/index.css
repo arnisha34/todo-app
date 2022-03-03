@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.App{
+  background: url("../public/images/bg-desktop-light.jpg") hsl(0, 0%, 98%) no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+  .todo-container{
+    padding-top: 60px;
+    max-width: 575px;
+    width: 100%;
+  }
+
+  .todo-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+    .todo-header h1{
+      color: #fff;
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+    }
+
+    .theme-toggle:hover{
+      cursor: pointer;
+    }
+
+  
+  .task-input,
+  .task-item,
+  .todo-footer{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  .task-input{
+    border-radius: 5px;
+    height: 70px;
+    margin-top: 20px;
+  }
+
+    .new-task:focus{
+      outline: none;
+    }
+
+  .check-mark{
+    border: 1px solid hsl(236, 33%, 92%);
+    border-radius: 50%;
+    margin: 0 20px;
+    width: 25px;
+    height: 25px;
+  }
+    .task-input:hover .check-mark,
+    .task-item:hover .check-mark{
+      background: linear-gradient(#fff, #fff) padding-box,linear-gradient(145deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+      border: 1px solid transparent;
+      border-radius: 50%;
+    }
+
+  .new-task,
+  .new-task::placeholder,
+  .task-item p,
+  .todo-footer{
+    color: hsl(233, 14%, 35%);
+  }
+  
+  .new-task{
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+  }
+  
+    .new-task::placeholder{
+      color: hsl(236, 9%, 61%);
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+  .tasks-list{
+    border-radius: 5px;
+    box-shadow: 0 0 50px -26px hsl(236, 33%, 60%);
+    margin-top: 30px;
+    overflow: hidden;
+  }
+
+    .task-item{
+      border-bottom: 1px solid hsl(233, 11%, 84%);
+      display: flex;
+      height: 70px;
+    }
+
+      .task-item:hover .delete{
+        background: url(../public/images/icon-cross.svg) no-repeat;
+        height: 20px;
+        width: 20px;
+      }
+
+      .task-item:hover{
+        cursor: pointer;
+      }
+      
+      .task-item p{
+        flex: 0.925;
+      }
+    
+    
+  .todo-footer{
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 25px;
+  }
+
+    .items-left,
+    .clear{
+      color: hsl(236, 9%, 61%);
+      font-size: 14px;
+    }
+
+    .status span{
+      color: hsl(234, 11%, 52%);
+    }
+
+      .status span:hover,
+      .clear:hover,
+      .status .active,
+      .status .active:hover{
+        cursor: pointer;
+      }
+
+      .status span:hover,
+      .clear:hover{
+        color: hsl(233, 14%, 35%);
+      }
+
+      .status .active,
+      .status .active:hover{
+        color: hsl(220, 98%, 61%);
+      }
+
+    .status span{
+      padding: 0 5px;
+    }
+
+
+/*---- Dark Mode ----*/
+
+  .App.dark{
+    background: url("../public/images/bg-desktop-dark.jpg") hsl(235, 21%, 11%) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .dark .new-task::placeholder{
+    color: hsl(236, 33%, 92%);
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  
+  .dark .tasks-list{
+    box-shadow: 0 0 50px hsl(235, 21%, 5%);
+  }
+
+  .dark .new-task,
+  .dark .new-task::placeholder,
+  .dark .task-item p,
+  .dark .todo-footer{
+    color: hsl(233, 11%, 84%);
+  }
+  
+  .dark .task-input,
+  .dark .task-item,
+  .dark .todo-footer{
+    background-color: hsl(235, 24%, 19%) !important;
+  }
+  
+  .dark .task-item{
+    border-bottom: 1px solid hsl(237, 14%, 26%);
+  }
+  
+  .dark .check-mark{
+    border: 1px solid hsl(237, 14%, 26%);
+  }
+
+   .dark .task-input:hover .check-mark,
+   .dark .task-item:hover .check-mark{
+      background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box,linear-gradient(145deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+    }
+
+    .dark .status span:hover,
+    .dark .clear:hover{
+        color: hsl(236, 33%, 92%);
+      }
+
