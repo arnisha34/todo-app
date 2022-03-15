@@ -18,13 +18,13 @@ body {
   background-size: contain;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100%;
 }
 
   .todo-container{
-    padding-top: 60px;
+    margin: 20px;
+    padding-top: 5%;
     max-width: 575px;
     width: 100%;
   }
@@ -79,18 +79,23 @@ body {
       border: 1px solid transparent;
       border-radius: 50%;
     }
+  
+  .new-todo-input{
+    flex: 0.9;
+  }
 
   .new-task,
   .new-task::placeholder,
   .task-item p,
   .todo-footer{
-    color: hsl(233, 14%, 35%);
+    color: hsl(234, 11%, 52%);
   }
   
   .new-task{
     background-color: transparent;
     border: none;
     font-size: 18px;
+    width: 100%;
   }
   
     .new-task::placeholder{
@@ -99,7 +104,8 @@ body {
     }
 
   .tasks-list{
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     box-shadow: 0 0 50px -26px hsl(236, 33%, 60%);
     margin-top: 30px;
     overflow: hidden;
@@ -111,10 +117,28 @@ body {
       height: 70px;
     }
 
+      .task-item.completed:hover .check-mark,
+      .completed .check-mark,
+      .completed .check-mark:hover{
+        background-image: linear-gradient(145deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        position: relative;
+      }
+        .task-item.completed .check-mark img{
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+        }
+
+      .delete.hide{
+        display: none;
+      }
+
       .task-item:hover .delete{
-        background: url(../public/images/icon-cross.svg) no-repeat;
-        height: 20px;
-        width: 20px;
+        /* background: url(../public/images/icon-cross.svg) no-repeat; */
+        /* height: 20px;
+        width: 20px; */
+        display: block;
       }
 
       .task-item:hover{
@@ -124,9 +148,17 @@ body {
       .task-item p{
         flex: 0.925;
       }
+
+      .task-item.completed p{
+        text-decoration: line-through;
+        opacity: 0.3;
+      }
     
     
   .todo-footer{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 10px 25px hsl(236, 33%, 90%);
     font-size: 15px;
     display: flex;
     justify-content: space-between;
@@ -170,7 +202,6 @@ body {
 
   .App.dark{
     background: url("../public/images/bg-desktop-dark.jpg") hsl(235, 21%, 11%) no-repeat;
-    background-repeat: no-repeat;
     background-size: contain;
   }
 
@@ -209,8 +240,72 @@ body {
       background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box,linear-gradient(145deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
     }
 
+    .dark .task-item.completed:hover .check-mark,
+    .dark .completed .check-mark,
+    .dark .completed .check-mark:hover{
+      background-image: linear-gradient(145deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+      position: relative;
+    }
+
     .dark .status span:hover,
     .dark .clear:hover{
-        color: hsl(236, 33%, 92%);
-      }
+      color: hsl(236, 33%, 92%);
+    }
 
+    .dark .todo-footer{
+      box-shadow: 0 15px 25px hsl(235, 21%, 5%);
+    }
+
+  .mobile{
+    display: none;
+  }
+
+
+/*--- Media Queries ---*/
+
+@media screen and (max-width: 576px) {
+  .desktop{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+  .App{
+    background: url("../public/images/bg-mobile-light.jpg") no-repeat;
+    background-size: 100% auto;
+    padding-bottom: 100px;
+  }
+  
+  .App.dark{
+    background: url("../public/images/bg-mobile-dark.jpg") no-repeat;
+    background-size: 100% auto;
+    padding-bottom: 100px;
+  }
+
+  .todo-header h1{
+    font-size: 25px;
+  }
+
+  .theme-toggle{
+    width: 20px;
+  }
+
+    .task-item{
+      font-size: 15px;
+    }
+
+  .todo-footer.mobile{
+    box-shadow: 0 10px 25px hsl(236, 33%, 90%);
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+
+  .dark .todo-footer.mobile{
+    box-shadow: 0 10px 25px hsl(235, 21%, 5%) !important;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+  }
+}

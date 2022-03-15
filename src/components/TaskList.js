@@ -1,15 +1,9 @@
 import { Task } from '../components/Task'
-import { ToDoFooter } from './ToDoFooter'
 
-export const TaskList = () => {
+export const TaskList = ({tasks, setTasks, filteredTasks}) => {
   return (
-      <div className='tasks-list'>
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <ToDoFooter />
-      </div>
+    <div className='tasks-list'>
+       {filteredTasks.map(task => <Task key={task.id} tasks={tasks} setTasks={setTasks} task={task} filteredTasks={filteredTasks}/>)}
+    </div>
   )
 }
