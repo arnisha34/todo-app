@@ -19,9 +19,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\<img width="1870" alt="Screen Shot 2022-03-15 at 5 04 28 PM" src="https://user-images.githubusercontent.com/970143/158491942-bc451968-4c91-4c28-9cc4-531aa50be616.png"><img width="1870" alt="Screen Shot 2022-03-15 at 5 04 28 PM" src="https://user-images.githubusercontent.com/970143/158491961-feb62591-73dd-4e36-b42b-8bbdb5a97a13.png"><img width="1871" alt="image" src="https://user-images.githubusercontent.com/970143/158492132-591f85da-6f29-4baa-ba55-acfbd2af879f.png">
-
-
+Launches the test runner in the interactive watch mode.\
 
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
