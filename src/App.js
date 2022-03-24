@@ -3,6 +3,9 @@ import { TaskInput } from "./components/TaskInput"
 import { TaskList } from "./components/TaskList"
 import { Status } from "./components/Status"
 import ThemeContext from './components/Context'
+import { collection, onSnapshot} from "firebase/firestore"; 
+import db from './utils/firebase'
+
 
 const data = [
   { id: 1, text: "Finish contacts hw", status: false },
@@ -24,7 +27,7 @@ function App() {
   const [filteredTasks, setFilteredTasks] = useState(tasks)
 
   useEffect(() => {
-
+    
     const handleFilter = () => { 
       if(filterStatus === "active"){
           setFilteredTasks(tasks.filter(task => task.status === false))
